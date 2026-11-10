@@ -1,5 +1,8 @@
-name: Build Android APK
-
+      - name: Build APK
+        run: |
+          cd our_story_android
+          sed -i 's/VERSION_1_8/VERSION_17/g; s/JVM_1_8/JVM_17/g; s/"1.8"/"17"/g' app/build.gradle
+          gradle assembleDebug
 on:
   workflow_dispatch:
   push:
